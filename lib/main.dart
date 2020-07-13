@@ -1,8 +1,3 @@
-/// WHEN PUBLISHING THE PACKAGE ENSURE THE FOLLOWING THINGS:- 
-/// - Update Example.
-/// - In countries.util uncomment 'package:"assets/flag"'
-
-
 import 'package:flutter/material.dart';
 
 import 'package:country_currency_chooser/country_currency_chooser.dart';

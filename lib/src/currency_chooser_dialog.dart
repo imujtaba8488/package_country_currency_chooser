@@ -140,7 +140,7 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
         ),
         child: Stack(
           children: <Widget>[
-            !widget.searchDisabled? _searchField(): Container(),
+            !widget.searchDisabled ? _searchField() : Container(),
             _countriesList(),
             widget.showPullToStartFloatingButton
                 ? _scrollToInitialPositionButton()
@@ -167,7 +167,10 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
             suffix: _searchController.text.isEmpty
                 ? null
                 : InkWell(
-                    child: Icon(Icons.clear),
+                    child: Icon(
+                      Icons.clear,
+                      color: widget.interfaceColor,
+                    ),
                     onTap: () {
                       setState(() {
                         _countries = sortedCountryList();
@@ -206,7 +209,7 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
 
   Positioned _countriesList() {
     return Positioned(
-      top: widget.searchDisabled? 0.0: 75.0,
+      top: widget.searchDisabled ? 0.0 : 75.0,
       width: _dialogWidth - 15,
       height: _dialogHeight,
       child: Container(

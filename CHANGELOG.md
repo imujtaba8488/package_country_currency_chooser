@@ -1,5 +1,11 @@
 # ChangeLog
 
+## 0.1.3+2
+
+### Specify When
+
+* __[Bug Fix]__ Changing the interface color didn't change color of the clear icon.
+
 ## 0.1.3+1
 
 ### Monday, 13th July, 2020 [Optimization Update]

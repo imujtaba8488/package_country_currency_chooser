@@ -1,0 +1,4 @@
+WHEN PUBLISHING THE PACKAGE ENSURE THE FOLLOWING THINGS:- 
+- Always update the example dart.
+- In countries.util uncomment 'package:"assets/flag"'
+- Ensure to format all documents.

@@ -24,7 +24,7 @@ class CountryUtils {
       height: 20.0,
       width: 30.0,
       fit: BoxFit.fill,
-      package: "assets/flags",
+      // package: "assets/flags",
     );
   }
 
