@@ -8,7 +8,7 @@ A simple yet powerful, elegant, customizable, and efficient currency chooser dia
 
 A simple yet powerful, elegant, customizable, and efficient currency chooser dialog with search support. Selecting a currency in the dialog fires a callback which returns the country flag along with the currency code of the country.
 
-![Screenshot]()
+![Screenshot](https://github.com/imujtaba8488/package_country_currency_chooser/blob/master/showcase/currency_chooser_01.gif)
 
 ## Using
 
