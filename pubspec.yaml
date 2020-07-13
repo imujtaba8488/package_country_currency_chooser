@@ -1,0 +1,29 @@
+name: country_currency_chooser
+description: A simple yet powerful, elegant, customizable, and efficient currency chooser dialog with search support.
+version: 0.1.3+1
+homepage: https://twitter.com/imujtaba8488
+repository: https://github.com/imujtaba8488/package_country_currency_chooser.git
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/flags/
+
