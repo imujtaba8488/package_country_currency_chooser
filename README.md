@@ -13,8 +13,6 @@ A simple yet powerful, elegant, customizable, and efficient currency chooser dia
 
 A simple yet powerful, elegant, customizable, and efficient currency chooser dialog with search support. Selecting a currency in the dialog fires a callback which returns the country flag along with the currency code of the country.
 
-![Screenshot](https://github.com/imujtaba8488/package_country_currency_chooser/blob/master/showcase/currency_chooser_01.gif)
-
 ## Using
 
 * Simply import package: `country_currency_chooser/country_currency_chooser.dart.`
@@ -27,3 +25,7 @@ A simple yet powerful, elegant, customizable, and efficient currency chooser dia
 ## Feedback
 
 Kindly email me directly for any feedback and hit the like button.
+
+## Screenshots
+
+![Screenshot](https://github.com/imujtaba8488/package_country_currency_chooser/blob/master/showcase/currency_chooser_01.gif)
