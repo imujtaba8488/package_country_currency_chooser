@@ -1,5 +1,10 @@
 # Country Currency Chooser
 
+![Pub Version (including pre-releases)](https://img.shields.io/pub/v/country_currency_chooser?include_prereleases)
+![GitHub issues](https://img.shields.io/github/issues-raw/imujtaba8488/package_country_currency_chooser)
+![GitHub last commit](https://img.shields.io/github/last-commit/imujtaba8488/package_country_currency_chooser)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/imujtaba8488/package_country_currency_chooser)
+
 ## About
 
 A simple yet powerful, elegant, customizable, and efficient currency chooser dialog __with search support.__
