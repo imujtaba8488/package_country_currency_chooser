@@ -1,0 +1,8 @@
+
+
+20-07-2020
+* Refactored the code.
+* Reorganized files into separate folders.
+* Dialog can now have two stretches: max and min
+* SearchField now a separate independent widget.
+* Country_List now a separate independent widget.
