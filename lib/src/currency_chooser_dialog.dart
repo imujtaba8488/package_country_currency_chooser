@@ -217,71 +217,72 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
         child: ListView.builder(
           itemCount: _countries.length,
           controller: _scrollController,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                if (widget.selectedCurrency != null) {
-                  widget.selectedCurrency(
-                    CountryUtils.getDefaultFlagImage(_countries[index]),
-                    _countries[index].currencyCode,
-                  );
+          itemBuilder: _buildCurrencyList,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCurrencyList(BuildContext context, int index) {
+    return InkWell(
+      onTap: () {
+        if (widget.selectedCurrency != null) {
+          widget.selectedCurrency(
+            CountryUtils.getDefaultFlagImage(_countries[index]),
+            _countries[index].currencyCode,
+          );
+        }
+
+        // Exit with an animation effect.
+        if (!widget.animationDisabled) animationController.reverse().orCancel;
+
+        !widget.animationDisabled
+            ? animationController.addStatusListener((status) {
+                if (status == AnimationStatus.dismissed) {
+                  Navigator.pop(context);
                 }
-
-                // Exit with an animation effect.
-                if (!widget.animationDisabled)
-                  animationController.reverse().orCancel;
-
-                !widget.animationDisabled
-                    ? animationController.addStatusListener((status) {
-                        if (status == AnimationStatus.dismissed) {
-                          Navigator.pop(context);
-                        }
-                      })
-                    : Navigator.pop(context);
-              },
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      widget.showFlags
-                          ? Container(
-                              decoration: widget.flagDecoration,
-                              child: CountryUtils.getDefaultFlagImage(
-                                _countries[index],
-                              ),
-                            )
-                          : Container(),
-                      SizedBox(width: 5.0),
-                      Expanded(
-                        flex: 2,
+              })
+            : Navigator.pop(context);
+      },
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              widget.showFlags
+                  ? Container(
+                      decoration: widget.flagDecoration,
+                      child: CountryUtils.getDefaultFlagImage(
+                        _countries[index],
+                      ),
+                    )
+                  : Container(),
+              SizedBox(width: 5.0),
+              Expanded(
+                flex: 2,
+                child: Text(
+                  _countries[index].name,
+                  style: TextStyle(color: widget.interfaceColor),
+                ),
+              ),
+              widget.showCurrencyCodes
+                  ? Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
                         child: Text(
-                          _countries[index].name,
-                          style: TextStyle(color: widget.interfaceColor),
+                          _countries[index].currencyCode,
+                          style: TextStyle(
+                            color: widget.interfaceColor,
+                          ),
                         ),
                       ),
-                      widget.showCurrencyCodes
-                          ? Expanded(
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  _countries[index].currencyCode,
-                                  style: TextStyle(
-                                    color: widget.interfaceColor,
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Container(),
-                    ],
-                  ),
-                  widget.showListDividers
-                      ? Divider(color: widget.interfaceColor)
-                      : Container(height: 5.0),
-                ],
-              ),
-            );
-          },
-        ),
+                    )
+                  : Container(),
+            ],
+          ),
+          widget.showListDividers
+              ? Divider(color: widget.interfaceColor)
+              : Container(height: 5.0),
+        ],
       ),
     );
   }
@@ -298,13 +299,11 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
           ),
           child: Icon(Icons.keyboard_arrow_up),
         ),
-        onTap: () {
-          _scrollController.animateTo(
-            _scrollController.initialScrollOffset,
-            curve: Curves.bounceIn,
-            duration: Duration(seconds: 1),
-          );
-        },
+        onTap: () => _scrollController.animateTo(
+          _scrollController.initialScrollOffset,
+          curve: Curves.bounceIn,
+          duration: Duration(seconds: 1),
+        ),
       ),
     );
   }
