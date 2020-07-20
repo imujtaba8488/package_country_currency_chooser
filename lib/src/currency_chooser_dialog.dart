@@ -1,8 +1,9 @@
+import 'package:country_currency_chooser/src/search_field.dart';
 import 'package:flutter/material.dart';
 
-import 'countries.dart';
-import 'country_utils.dart';
-import 'country.dart';
+import 'models/countries.dart';
+import 'models/country_utils.dart';
+import 'models/country.dart';
 
 /// Signature of the callback that is fired when a currency is selected on the currency chooser dialog.
 typedef CurrencySelector = void Function(Widget flag, String currencyCode);
@@ -83,7 +84,6 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
     with SingleTickerProviderStateMixin {
   double _dialogHeight, _dialogWidth;
   ScrollController _scrollController;
-  TextEditingController _searchController;
   List<Country> _countries;
   AnimationController animationController;
   Animation animation;
@@ -92,7 +92,6 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _searchController = TextEditingController();
     _countries = sortedCountryList();
     animationController = AnimationController(
       vsync: this,
@@ -140,7 +139,21 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
         ),
         child: Stack(
           children: <Widget>[
-            !widget.searchDisabled ? _searchField() : Container(),
+            // !widget.searchDisabled ? _searchField() : Container(),
+            !widget.searchDisabled
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SearchField(
+                      interfaceColor: widget.interfaceColor,
+                      countries: sortedCountryList(),
+                      onSearched: (List<Country> countries) {
+                        setState(() {
+                          _countries = countries;
+                        });
+                      },
+                    ),
+                  )
+                : Container(),
             _countriesList(),
             widget.showPullToStartFloatingButton
                 ? _scrollToInitialPositionButton()
@@ -151,63 +164,10 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
     );
   }
 
-  Positioned _searchField() {
-    return Positioned(
-      width: _dialogWidth - 10,
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: TextField(
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              color: widget.interfaceColor,
-            ),
-
-            // Shows the clearText icon when something is typed within the search box.
-            suffix: _searchController.text.isEmpty
-                ? null
-                : InkWell(
-                    child: Icon(
-                      Icons.clear,
-                      color: widget.interfaceColor,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        _countries = sortedCountryList();
-                        _searchController.clear();
-                      });
-                    },
-                  ),
-            labelText: 'Search',
-            labelStyle: TextStyle(
-              color: widget.interfaceColor,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: widget.interfaceColor,
-                width: 0.5,
-              ),
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: widget.interfaceColor,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: widget.interfaceColor,
-              ),
-            ),
-          ),
-          style: TextStyle(color: widget.interfaceColor),
-          controller: _searchController,
-          onChanged: _onSearch,
-        ),
-      ),
-    );
-  }
-
   Positioned _countriesList() {
+    print('...rebuilding countries list ...');
+    print('length: ${_countries.length}');
+
     return Positioned(
       top: widget.searchDisabled ? 0.0 : 75.0,
       width: _dialogWidth - 15,
@@ -306,26 +266,5 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
         ),
       ),
     );
-  }
-
-  void _onSearch(String value) {
-    setState(() {
-      if (value.trim().isEmpty) {
-        _countries = sortedCountryList();
-      } else {
-        // <|IMPORTANT|> set countries list back to initial list, so that the next value is searched within the whole list. For example, say you type 'I', countries will be searched for value of 'I', next say you type 'IN', now the countries will be searched for 'IN' instead of 'I', and so on.
-        _countries = sortedCountryList();
-
-        // Search for either the country name or the currency code.
-        _countries = _countries.where((country) {
-          return country.name.startsWith(value.trim()) ||
-              country.name
-                  .toLowerCase()
-                  .startsWith(value.toLowerCase().trim()) ||
-              country.currencyCode.startsWith(value.trim()) ||
-              country.currencyCode.toLowerCase().startsWith(value.trim());
-        }).toList();
-      }
-    });
   }
 }
