@@ -56,7 +56,8 @@ class CurrencyChooserDialog extends StatefulWidget {
   /// The height of the dialog
   final DialogStretch dialogStretch;
 
-  final PullToStartFloatingButtonPosition pullToStartFloatingButtonPosition;
+  /// Where to place the pullToStartFloatingButton
+  final ButtonPlacement pullToStartFloatingButtonPlacement;
 
   CurrencyChooserDialog({
     this.selectedCurrency,
@@ -74,8 +75,8 @@ class CurrencyChooserDialog extends StatefulWidget {
     this.flagDecoration,
     this.searchDisabled = false,
     this.dialogStretch = DialogStretch.min,
-    this.pullToStartFloatingButtonPosition =
-        PullToStartFloatingButtonPosition.bottom_right,
+    this.pullToStartFloatingButtonPlacement =
+        ButtonPlacement.bottom_right,
   }) {
     assert(
       showFlags == false && flagDecoration == null ||
@@ -180,8 +181,8 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
                   showCurrencyCodes: widget.showCurrencyCodes,
                   showFlags: widget.showFlags,
                   showListDividers: widget.showListDividers,
-                  pullToStartFloatingButtonPosition:
-                      widget.pullToStartFloatingButtonPosition,
+                  pullToStartFloatingButtonPlacement:
+                      widget.pullToStartFloatingButtonPlacement,
                   pullToStartFloatingButtonColor:
                       widget.pullToStartFloatingButtonColor,
                 ),

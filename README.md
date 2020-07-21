@@ -33,7 +33,7 @@ Kindly email me directly for any feedback and hit the like button.
 ## Supported Attributes
 
 | Property | Description | Default |
-|--------------------------------|---------------------------------------------------------------------------|------------------|
+|--------------------------------|---------------------------------------------------------------------------|
 | selectedCurrency | Callback that provides `flag` and `currencyCode` of the currency selected | - |
 | showFlags | Whether to show flags in the country list or not | true |
 | showPullToStartFloatingButton | Whether to show pullToStartFloatingButton or not | true |
@@ -48,4 +48,5 @@ Kindly email me directly for any feedback and hit the like button.
 | animationDisabled | Whether to disable the dialog pop-up and pop-out animation | false |
 | flagDecoration | Decoration to set for the flag if displayed. | -  |
 | searchDisabled | Whether the search box is disabled | false |
-| dialogStretch | The height of the dialog | min |
+| dialogStretch | The height of the dialog | DialogStretch.min |
+| pullToStartButtonPlacement | Where to place the pullToStartFloatingButton | ButtonPlacement.bottom_right |

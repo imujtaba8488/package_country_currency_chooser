@@ -11,7 +11,7 @@ class CountryList extends StatefulWidget {
   final bool showListDividers;
   final bool showCurrencyCodes;
   final Function onItemSelected;
-  final PullToStartFloatingButtonPosition pullToStartFloatingButtonPosition;
+  final ButtonPlacement pullToStartFloatingButtonPlacement;
   final Color pullToStartFloatingButtonColor;
 
   CountryList({
@@ -22,8 +22,8 @@ class CountryList extends StatefulWidget {
     this.showListDividers = true,
     this.showCurrencyCodes = true,
     this.onItemSelected,
-    this.pullToStartFloatingButtonPosition =
-        PullToStartFloatingButtonPosition.bottom_right,
+    this.pullToStartFloatingButtonPlacement =
+        ButtonPlacement.bottom_right,
     this.pullToStartFloatingButtonColor = Colors.green,
   });
 
@@ -115,11 +115,11 @@ class _CountryListState extends State<CountryList> {
 
   Widget _scrollToInitialPositionButton() {
     return Container(
-      alignment: widget.pullToStartFloatingButtonPosition ==
-              PullToStartFloatingButtonPosition.bottom_left
+      alignment: widget.pullToStartFloatingButtonPlacement ==
+              ButtonPlacement.bottom_left
           ? Alignment.bottomLeft
-          : widget.pullToStartFloatingButtonPosition ==
-                  PullToStartFloatingButtonPosition.bottom_center
+          : widget.pullToStartFloatingButtonPlacement ==
+                  ButtonPlacement.bottom_center
               ? Alignment.bottomCenter
               : Alignment.bottomRight,
       padding: EdgeInsets.all(5.0),
@@ -141,7 +141,7 @@ class _CountryListState extends State<CountryList> {
   }
 }
 
-enum PullToStartFloatingButtonPosition {
+enum ButtonPlacement {
   bottom_left,
   bottom_center,
   bottom_right,
