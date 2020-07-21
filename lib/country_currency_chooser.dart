@@ -1,3 +1,3 @@
 library country_currency_chooser;
 
-export 'src/currency_chooser_dialog.dart';
+export 'src/widgets/currency_chooser_dialog.dart';

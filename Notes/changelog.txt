@@ -1,0 +1,13 @@
+21-07-2020
+
+* [BugFix] An item receives only a single tap, hence, popping only the dialog, and preventing popping more screens.
+* Added the PullToStartFloatingButtonPosition option.
+* Some code refactoring.
+* Added the attributes table to the README.md file.
+
+20-07-2020
+* Refactored the code.
+* Reorganized files into separate folders.
+* Dialog can now have two stretches: max and min
+* SearchField now a separate independent widget.
+* Country_List now a separate independent widget.

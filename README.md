@@ -29,4 +29,25 @@ Kindly email me directly for any feedback and hit the like button.
 
 ## Screenshots
 
-![Screenshot](https://github.com/imujtaba8488/package_country_currency_chooser/blob/master/showcase/currency_chooser_01.gif)
+![Screenshot](https://github.com/imujtaba8488/showcase/blob/master/currency_chooser_01.gif)
+
+## Supported Attributes
+
+| Property | Description | Default |
+|--------------------------------|---------------------------------------------------------------------------|------------------------------|
+| selectedCurrency | Callback that provides `flag` and `currencyCode` of the currency selected | - |
+| showFlags | Whether to show flags in the country list or not | true |
+| showPullToStartFloatingButton | Whether to show pullToStartFloatingButton or not | true |
+| showListDividers | Whether to show list dividers in the country list or not | true |
+| showCurrencyCodes | Whether to show currency codes in the country list or not | true |
+| backgroundColor | The background color of the currency chooser dialog | White |
+| interfaceColor | The color to apply to the elements of the dialog | Black |
+| borderColor | The color to apply to the border of the dialog | White |
+| pullToStartFloatingButtonColor | Color to the apply to pullToStartFloatingButton | Green |
+| dialogAnimationEffect | Dialog pop-up and pop-out animation | FastOutSlowIn |
+| dialogAnimationDuration | Duration of dialog pop-up and pop-out animation | 500 milliseconds |
+| animationDisabled | Whether to disable the dialog pop-up and pop-out animation | false |
+| flagDecoration | Decoration to set for the flag if displayed. | -  |
+| searchDisabled | Whether the search box is disabled | false |
+| dialogStretch | The height of the dialog | DialogStretch.min |
+| pullToStartButtonPlacement | Where to place the pullToStartFloatingButton | ButtonPlacement.bottom_right |
