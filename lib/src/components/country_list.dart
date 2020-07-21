@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/country.dart';
-import '../models/country_utils.dart';
+import '../country.dart';
+import '../country_utils.dart';
 
 class CountryList extends StatefulWidget {
   final List<Country> countries;
@@ -22,8 +22,7 @@ class CountryList extends StatefulWidget {
     this.showListDividers = true,
     this.showCurrencyCodes = true,
     this.onItemSelected,
-    this.pullToStartFloatingButtonPlacement =
-        ButtonPlacement.bottom_right,
+    this.pullToStartFloatingButtonPlacement = ButtonPlacement.bottom_right,
     this.pullToStartFloatingButtonColor = Colors.green,
   });
 
