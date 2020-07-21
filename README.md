@@ -34,4 +34,5 @@ Kindly email me directly for any feedback and hit the like button.
 
 |Property| Description| Default |
 |--------|------------|--------|
-|testing this value| testing that value| testing that value again|
+|selectedCurrency| A callback that provides the `flag` and `currencyCode` of the currency that was selected.| not applicable|
+|showFlags| Whether the show the country flags in the country list or not| true |
