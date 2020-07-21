@@ -2,9 +2,9 @@ import 'package:country_currency_chooser/src/components/search_field.dart';
 import 'package:flutter/material.dart';
 
 import '../components/country_list.dart';
-import '../countries.dart';
-import '../country.dart';
-import '../country_utils.dart';
+import '../models/countries.dart';
+import '../models/country.dart';
+import '../models/country_utils.dart';
 
 /// Signature of the callback that is fired when a currency is selected on the currency chooser dialog.
 typedef CurrencySelector = void Function(Widget flag, String currencyCode);
@@ -57,7 +57,7 @@ class CurrencyChooserDialog extends StatefulWidget {
   final DialogStretch dialogStretch;
 
   /// Where to place the pullToStartFloatingButton
-  final ButtonPlacement pullToStartFloatingButtonPlacement;
+  final Alignment pullToStartFloatingButtonPlacement;
 
   CurrencyChooserDialog({
     this.selectedCurrency,
@@ -75,7 +75,7 @@ class CurrencyChooserDialog extends StatefulWidget {
     this.flagDecoration,
     this.searchDisabled = false,
     this.dialogStretch = DialogStretch.min,
-    this.pullToStartFloatingButtonPlacement = ButtonPlacement.bottom_right,
+    this.pullToStartFloatingButtonPlacement = Alignment.bottomRight,
   }) {
     assert(
       showFlags == false && flagDecoration == null ||

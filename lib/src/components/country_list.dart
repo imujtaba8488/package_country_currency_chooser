@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../country.dart';
-import '../country_utils.dart';
+import '../models/country.dart';
+import '../models/country_utils.dart';
 
 class CountryList extends StatefulWidget {
   final List<Country> countries;
@@ -11,7 +11,7 @@ class CountryList extends StatefulWidget {
   final bool showListDividers;
   final bool showCurrencyCodes;
   final Function onItemSelected;
-  final ButtonPlacement pullToStartFloatingButtonPlacement;
+  final Alignment pullToStartFloatingButtonPlacement;
   final Color pullToStartFloatingButtonColor;
 
   CountryList({
@@ -22,7 +22,7 @@ class CountryList extends StatefulWidget {
     this.showListDividers = true,
     this.showCurrencyCodes = true,
     this.onItemSelected,
-    this.pullToStartFloatingButtonPlacement = ButtonPlacement.bottom_right,
+    this.pullToStartFloatingButtonPlacement = Alignment.bottomRight,
     this.pullToStartFloatingButtonColor = Colors.green,
   });
 
@@ -114,13 +114,7 @@ class _CountryListState extends State<CountryList> {
 
   Widget _scrollToInitialPositionButton() {
     return Container(
-      alignment: widget.pullToStartFloatingButtonPlacement ==
-              ButtonPlacement.bottom_left
-          ? Alignment.bottomLeft
-          : widget.pullToStartFloatingButtonPlacement ==
-                  ButtonPlacement.bottom_center
-              ? Alignment.bottomCenter
-              : Alignment.bottomRight,
+      alignment: widget.pullToStartFloatingButtonPlacement,
       padding: EdgeInsets.all(5.0),
       child: InkWell(
         child: Container(
@@ -138,10 +132,4 @@ class _CountryListState extends State<CountryList> {
       ),
     );
   }
-}
-
-enum ButtonPlacement {
-  bottom_left,
-  bottom_center,
-  bottom_right,
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../country.dart';
+import '../models/country.dart';
 
 class SearchField extends StatefulWidget {
   final Color interfaceColor;
