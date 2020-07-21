@@ -32,6 +32,8 @@ Kindly email me directly for any feedback and hit the like button.
 
 ## Supported Attributes
 
- **Property**     | **Description**                                                                             | **Default**
-------------------|---------------------------------------------------------------------------------------------|-------------
- selectedCurrency | A callback that provides the \`flag` and `currencyCode` of the currency that was selected\. | none
+| Property | Description | Default |
+|-------------------------------|---------------------------------------------------------------------------|---------|
+| selectedCurrency | Callback that provides `flag` and `currencyCode` of the currency selected | none |
+| showFlags | Whether to show flags in the country list or not | true |
+| showPullToStartFloatingButton | Whether to show pullToStartFloatingButton or not | true |
