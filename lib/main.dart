@@ -38,7 +38,7 @@ class Homepage extends StatelessWidget {
             builder: (context) => CurrencyChooserDialog(
               // backgroundColor: Colors.black,
               interfaceColor: Colors.blue,
-              // dialogStretch: DialogStretch.max,
+              dialogStretch: DialogStretch.max,
               // showCurrencyCodes: false,
             ),
           ),

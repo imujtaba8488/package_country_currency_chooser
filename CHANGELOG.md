@@ -2,9 +2,18 @@
 
 ## 0.1.3+2
 
-### Specify When
+### Tuesday, 21st July, 2020
 
-* __[Bug Fix]__ Changing the interface color didn't change color of the clear icon.
+* __[Bug Fix]__ An item receives only a single tap, hence, popping only the dialog,
+and preventing popping more screens.
+
+* Added option for placement of pullToStartFloatingButton.
+
+* Added option for the dialog to have two heights (stretches).
+
+* Refactored the code.
+
+* Documentation improvements.
 
 ## 0.1.3+1
 
