@@ -32,7 +32,6 @@ Kindly email me directly for any feedback and hit the like button.
 
 ## Supported Attributes
 
-|Property| Description| Default |
-|--------|------------|--------|
-|selectedCurrency| A callback that provides the `flag` and `currencyCode` of the currency that was selected.| not applicable|
-|showFlags| Whether the show the country flags in the country list or not| true |
+ **Property**     | **Description**                                                                             | **Default**
+------------------|---------------------------------------------------------------------------------------------|-------------
+ selectedCurrency | A callback that provides the \`flag` and `currencyCode` of the currency that was selected\. | none
