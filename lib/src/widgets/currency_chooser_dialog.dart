@@ -53,7 +53,10 @@ class CurrencyChooserDialog extends StatefulWidget {
   /// Whether to disable the search or not.
   final bool searchDisabled;
 
+  /// The height of the dialog
   final DialogStretch dialogStretch;
+
+  final PullToStartFloatingButtonPosition pullToStartFloatingButtonPosition;
 
   CurrencyChooserDialog({
     this.selectedCurrency,
@@ -71,6 +74,8 @@ class CurrencyChooserDialog extends StatefulWidget {
     this.flagDecoration,
     this.searchDisabled = false,
     this.dialogStretch = DialogStretch.min,
+    this.pullToStartFloatingButtonPosition =
+        PullToStartFloatingButtonPosition.bottom_right,
   }) {
     assert(
       showFlags == false && flagDecoration == null ||
@@ -151,7 +156,7 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
               !widget.searchDisabled
                   ? Flexible(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: SearchField(
                           interfaceColor: widget.interfaceColor,
                           countries: sortedCountryList(),
@@ -171,6 +176,14 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
                   countries: _countries,
                   interfaceColor: widget.interfaceColor,
                   onItemSelected: _onItemSelected,
+                  flagDecoration: widget.flagDecoration,
+                  showCurrencyCodes: widget.showCurrencyCodes,
+                  showFlags: widget.showFlags,
+                  showListDividers: widget.showListDividers,
+                  pullToStartFloatingButtonPosition:
+                      widget.pullToStartFloatingButtonPosition,
+                  pullToStartFloatingButtonColor:
+                      widget.pullToStartFloatingButtonColor,
                 ),
               ),
             ],

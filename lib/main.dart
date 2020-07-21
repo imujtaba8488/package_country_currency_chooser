@@ -1,3 +1,4 @@
+import 'package:country_currency_chooser/src/components/country_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:country_currency_chooser/country_currency_chooser.dart';
@@ -36,9 +37,12 @@ class Homepage extends StatelessWidget {
           onPressed: () => showDialog(
             context: context,
             builder: (context) => CurrencyChooserDialog(
-              backgroundColor: Colors.black,
-              interfaceColor: Colors.white,
-              dialogStretch: DialogStretch.max,
+              backgroundColor: Colors.white,
+              interfaceColor: Colors.blue,
+              // dialogStretch: DialogStretch.max,
+              showCurrencyCodes: false,
+              pullToStartFloatingButtonPosition:
+                  PullToStartFloatingButtonPosition.bottom_center,
             ),
           ),
           child: Text('Select Currency'),

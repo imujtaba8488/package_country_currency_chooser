@@ -28,4 +28,4 @@ Kindly email me directly for any feedback and hit the like button.
 
 ## Screenshots
 
-![Screenshot](https://github.com/imujtaba8488/package_country_currency_chooser/blob/master/showcase/currency_chooser_01.gif)
+![Screenshot](https://github.com/imujtaba8488/showcase/blob/master/currency_chooser_01.gif)

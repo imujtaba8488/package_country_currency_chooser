@@ -1,4 +1,7 @@
+21-07-2020
 
+* Added the PullToStartFloatingButtonPosition option.
+* Some code refactoring.
 
 20-07-2020
 * Refactored the code.

@@ -11,6 +11,8 @@ class CountryList extends StatefulWidget {
   final bool showListDividers;
   final bool showCurrencyCodes;
   final Function onItemSelected;
+  final PullToStartFloatingButtonPosition pullToStartFloatingButtonPosition;
+  final Color pullToStartFloatingButtonColor;
 
   CountryList({
     @required this.countries,
@@ -20,6 +22,9 @@ class CountryList extends StatefulWidget {
     this.showListDividers = true,
     this.showCurrencyCodes = true,
     this.onItemSelected,
+    this.pullToStartFloatingButtonPosition =
+        PullToStartFloatingButtonPosition.bottom_right,
+    this.pullToStartFloatingButtonColor = Colors.green,
   });
 
   @override
@@ -100,13 +105,18 @@ class _CountryListState extends State<CountryList> {
 
   Widget _scrollToInitialPositionButton() {
     return Container(
-      alignment: Alignment.bottomRight,
+      alignment: widget.pullToStartFloatingButtonPosition ==
+              PullToStartFloatingButtonPosition.bottom_left
+          ? Alignment.bottomLeft
+          : widget.pullToStartFloatingButtonPosition ==
+                  PullToStartFloatingButtonPosition.bottom_center
+              ? Alignment.bottomCenter
+              : Alignment.bottomRight,
       padding: EdgeInsets.all(5.0),
       child: InkWell(
         child: Container(
           decoration: BoxDecoration(
-            // color: widget.pullToStartFloatingButtonColor,
-            color: Colors.green,
+            color: widget.pullToStartFloatingButtonColor,
             shape: BoxShape.circle,
           ),
           child: Icon(Icons.keyboard_arrow_up),
@@ -119,4 +129,10 @@ class _CountryListState extends State<CountryList> {
       ),
     );
   }
+}
+
+enum PullToStartFloatingButtonPosition {
+  bottom_left,
+  bottom_center,
+  bottom_right,
 }
