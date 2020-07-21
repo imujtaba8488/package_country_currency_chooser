@@ -33,7 +33,7 @@ Kindly email me directly for any feedback and hit the like button.
 ## Supported Attributes
 
 | Property | Description | Default |
-|--------------------------------|---------------------------------------------------------------------------|
+|--------------------------------|---------------------------------------------------------------------------|------------------------------|
 | selectedCurrency | Callback that provides `flag` and `currencyCode` of the currency selected | - |
 | showFlags | Whether to show flags in the country list or not | true |
 | showPullToStartFloatingButton | Whether to show pullToStartFloatingButton or not | true |
