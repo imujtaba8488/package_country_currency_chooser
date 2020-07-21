@@ -32,5 +32,6 @@ Kindly email me directly for any feedback and hit the like button.
 
 ## Supported Attributes
 
-|Property| Description| Default
+|Property| Description| Default |
 |--------|------------|--------|
+|testing this value| testing that value| testing that value again|
