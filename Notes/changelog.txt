@@ -1,5 +1,6 @@
 21-07-2020
 
+* [BugFix] An item receives only a single tap, hence, popping only the dialog, and preventing popping more screens.
 * Added the PullToStartFloatingButtonPosition option.
 * Some code refactoring.
 

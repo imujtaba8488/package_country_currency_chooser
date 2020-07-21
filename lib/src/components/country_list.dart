@@ -34,6 +34,10 @@ class CountryList extends StatefulWidget {
 class _CountryListState extends State<CountryList> {
   ScrollController _scrollController;
 
+  // !Problem: User could have tapped an item again and it would have resulted in second and successive tap that sent the app right off all the screens because of the Navigator.pop(context) statement.
+  // Disables any successive taps to prevent the Navigator.of(context) to be called again, which evidently if called again resulted in popping more than one screen.
+  bool _disableSuccessiveTaps = false;
+
   @override
   void initState() {
     super.initState();
@@ -58,47 +62,53 @@ class _CountryListState extends State<CountryList> {
   }
 
   Widget _buildCurrencyList(BuildContext context, int index) {
-    return InkWell(
-      onTap: () => widget.onItemSelected(index),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              widget.showFlags
-                  ? Container(
-                      decoration: widget.flagDecoration,
-                      child: CountryUtils.getDefaultFlagImage(
-                        widget.countries[index],
-                      ),
-                    )
-                  : Container(),
-              SizedBox(width: 5.0),
-              Expanded(
-                flex: 2,
-                child: Text(
-                  widget.countries[index].name,
-                  style: TextStyle(color: widget.interfaceColor),
+    return IgnorePointer(
+      ignoring: _disableSuccessiveTaps,
+      child: InkWell(
+        onTap: () {
+          widget.onItemSelected(index);
+          _disableSuccessiveTaps = true;
+        },
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                widget.showFlags
+                    ? Container(
+                        decoration: widget.flagDecoration,
+                        child: CountryUtils.getDefaultFlagImage(
+                          widget.countries[index],
+                        ),
+                      )
+                    : Container(),
+                SizedBox(width: 5.0),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    widget.countries[index].name,
+                    style: TextStyle(color: widget.interfaceColor),
+                  ),
                 ),
-              ),
-              widget.showCurrencyCodes
-                  ? Expanded(
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          widget.countries[index].currencyCode,
-                          style: TextStyle(
-                            color: widget.interfaceColor,
+                widget.showCurrencyCodes
+                    ? Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            widget.countries[index].currencyCode,
+                            style: TextStyle(
+                              color: widget.interfaceColor,
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  : Container(),
-            ],
-          ),
-          widget.showListDividers
-              ? Divider(color: widget.interfaceColor)
-              : Container(height: 5.0),
-        ],
+                      )
+                    : Container(),
+              ],
+            ),
+            widget.showListDividers
+                ? Divider(color: widget.interfaceColor)
+                : Container(height: 5.0),
+          ],
+        ),
       ),
     );
   }
