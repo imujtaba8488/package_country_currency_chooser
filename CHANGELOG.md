@@ -1,17 +1,13 @@
 # ChangeLog
 
-## 0.1.3+5
+## 0.1.4
 
 ### Tuesday, 21st July, 2020 [Bug Fix]
 
-* [Bug Fix] for releases 0.1.3+2, 0.1.3+3, 0.1.3+4 - Flags missing!
-
-## 0.1.3+2
-
-### Tuesday, 21st July, 2020
-
 * __[Bug Fix]__ An item receives only a single tap, hence, popping only the dialog,
 and preventing popping more screens.
+
+* __[Bug Fix]__ Flags may go missing in certain situations.
 
 * Added option for placement of pullToStartFloatingButton.
 

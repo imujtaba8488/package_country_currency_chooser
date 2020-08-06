@@ -10,6 +10,7 @@ class CountryList extends StatefulWidget {
   final Color interfaceColor;
   final bool showListDividers;
   final bool showCurrencyCodes;
+  final bool showCurrencySymbol;
   final Function onItemSelected;
   final Alignment pullToStartFloatingButtonPlacement;
   final Color pullToStartFloatingButtonColor;
@@ -21,6 +22,7 @@ class CountryList extends StatefulWidget {
     this.interfaceColor,
     this.showListDividers = true,
     this.showCurrencyCodes = true,
+    this.showCurrencySymbol = false,
     this.onItemSelected,
     this.pullToStartFloatingButtonPlacement = Alignment.bottomRight,
     this.pullToStartFloatingButtonColor = Colors.green,
@@ -88,6 +90,19 @@ class _CountryListState extends State<CountryList> {
                     style: TextStyle(color: widget.interfaceColor),
                   ),
                 ),
+                widget.showCurrencySymbol
+                    ? Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            widget.countries[index].currencySymbol,
+                            style: TextStyle(
+                              color: widget.interfaceColor,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
                 widget.showCurrencyCodes
                     ? Expanded(
                         child: Align(

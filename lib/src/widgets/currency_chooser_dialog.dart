@@ -7,7 +7,12 @@ import '../models/country.dart';
 import '../models/country_utils.dart';
 
 /// Signature of the callback that is fired when a currency is selected on the currency chooser dialog.
-typedef CurrencySelector = void Function(Widget flag, String currencyCode);
+typedef CurrencySelector = void Function(
+  Widget flag,
+  String currencyCode,
+  String currencySymbol,
+  String countryName,
+);
 
 /// A simple yet powerful, elegant, customizable, and efficient currency chooser dialog with search support. Selecting a currency in the dialog fires a callback which returns the country flag along with the currency code of the country.
 class CurrencyChooserDialog extends StatefulWidget {
@@ -23,8 +28,11 @@ class CurrencyChooserDialog extends StatefulWidget {
   /// Whether to show dividers or not.
   final bool showListDividers;
 
-  /// Whether to currency code or not.
+  /// Whether to show currency code or not.
   final bool showCurrencyCodes;
+
+  /// Whether to show currency symbol or not.
+  final bool showCurrencySymbol;
 
   /// The background color of the dialog.
   final Color backgroundColor;
@@ -65,6 +73,7 @@ class CurrencyChooserDialog extends StatefulWidget {
     this.showPullToStartFloatingButton = true,
     this.showListDividers = true,
     this.showCurrencyCodes = true,
+    this.showCurrencySymbol = false,
     this.backgroundColor = Colors.white,
     this.interfaceColor = Colors.black,
     this.borderColor = Colors.white,
@@ -178,6 +187,7 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
                   onItemSelected: _onItemSelected,
                   flagDecoration: widget.flagDecoration,
                   showCurrencyCodes: widget.showCurrencyCodes,
+                  showCurrencySymbol: widget.showCurrencySymbol,
                   showFlags: widget.showFlags,
                   showListDividers: widget.showListDividers,
                   pullToStartFloatingButtonPlacement:
@@ -198,6 +208,8 @@ class _CurrencyChooserDialogState extends State<CurrencyChooserDialog>
       widget.selectedCurrency(
         CountryUtils.getDefaultFlagImage(_countries[index]),
         _countries[index].currencyCode,
+        _countries[index].currencyName,
+        _countries[index].name,
       );
     }
 

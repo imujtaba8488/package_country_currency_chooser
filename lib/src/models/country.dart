@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Country {
   final String name;
   final String isoCode;
@@ -29,4 +31,7 @@ class Country {
         continent: map['continent'],
         capital: map['capital'],
       );
+
+  String get currencySymbol =>
+      NumberFormat().simpleCurrencySymbol(currencyCode);
 }

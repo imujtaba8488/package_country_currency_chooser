@@ -40,9 +40,10 @@ class Homepage extends StatelessWidget {
               interfaceColor: Colors.blue,
               dialogStretch: DialogStretch.max,
               // showCurrencyCodes: false,
+              showCurrencySymbol: true,
             ),
           ),
-          child: Text('Select Currency'),
+          child: Text('Select Currency \u008380'),
         ),
       ),
     );
